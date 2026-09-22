@@ -1,0 +1,236 @@
+.hero {
+  width: 100%;
+
+  background-color: var(--cream);
+}
+
+.hero-content {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 650px;
+}
+
+/* -------------------- */
+/* LINKERKANT - TEKST   */
+/* -------------------- */
+
+.hero-text {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  /*
+    Zelfde linkermarge als navbar-logo.
+    Hierdoor lijnen logo en hero exact uit.
+  */
+  padding-left: var(--page-padding);
+
+  padding-right: 60px;
+}
+
+.hero-text-inner {
+  width: 100%;
+
+  max-width: 650px;
+}
+
+.hero-title {
+  color: var(--green-dark);
+}
+
+.hero-subtitle {
+  margin-top: 28px;
+
+  color: var(--green-dark);
+}
+
+/* Gele markering achter "Samen" */
+
+.hero-highlight {
+  position: relative;
+
+  display: inline-block;
+
+  z-index: 1;
+}
+
+.hero-highlight::after {
+  content: "";
+
+  position: absolute;
+
+  left: -5px;
+  right: -5px;
+
+  bottom: 1px;
+
+  height: 12px;
+
+  background-color: var(--yellow);
+
+  transform: rotate(-1deg);
+
+  z-index: -1;
+}
+
+/* CTA */
+
+.hero-button {
+  margin-top: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  min-width: 275px;
+
+  padding: 15px 18px;
+
+  background-color: var(--yellow);
+  color: var(--green-dark);
+
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+.hero-button-arrow {
+  font-size: 20px;
+
+  line-height: 1;
+}
+
+/* -------------------- */
+/* RECHTERKANT - IMAGE  */
+/* -------------------- */
+
+.hero-image-wrapper {
+  width: 100%;
+  height: 100%;
+
+  min-height: 650px;
+
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+/* -------------------- */
+/* TABLET               */
+/* -------------------- */
+
+@media (max-width: 1024px) {
+  .hero-content {
+    min-height: 590px;
+  }
+
+  .hero-text {
+    padding-right: 40px;
+  }
+
+  .hero-image-wrapper {
+    min-height: 590px;
+  }
+
+  .hero-button {
+    margin-top: 45px;
+  }
+}
+
+/* -------------------- */
+/* MOBILE               */
+/* -------------------- */
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .hero-text {
+    padding-top: 60px;
+    padding-bottom: 55px;
+
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+  }
+
+  .hero-text-inner {
+    max-width: none;
+  }
+
+  .hero-subtitle {
+    margin-top: 22px;
+
+    max-width: 420px;
+  }
+
+  .hero-button {
+    margin-top: 40px;
+
+    width: 100%;
+    max-width: 310px;
+  }
+
+  .hero-image-wrapper {
+    height: 420px;
+
+    min-height: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
+/* -------------------- */
+/* KLEINE MOBILE        */
+/* -------------------- */
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+
+  .hero-image-wrapper {
+    height: 340px;
+  }
+
+  .hero-button {
+    max-width: none;
+  }
+
+  .hero-highlight::after {
+    height: 9px;
+  }
+}

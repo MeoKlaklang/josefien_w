@@ -1,0 +1,468 @@
+.intro-section {
+  width: 100%;
+  background-color: var(--white);
+}
+
+
+/* =========================================
+   BOVENSTE SECTIE
+   afbeelding full bleed links
+========================================= */
+
+.intro-top-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 36% 64%;
+
+  align-items: stretch;
+}
+
+
+/* FOTO LINKS */
+
+.intro-top-image {
+  width: 100%;
+  min-height: 460px;
+
+  overflow: hidden;
+}
+
+.intro-top-image img {
+  width: 100%;
+  height: 80%;
+
+  object-fit: cover;
+
+  /*
+    Hiermee zoomen we wat in.
+    110% = subtiele zoom.
+  */
+  transform: scale(1.08);
+
+  /*
+    Pas dit eventueel aan als je een
+    bepaald gedeelte van de foto wil zien.
+  */
+  object-position: center center;
+}
+
+
+/* TEKST RECHTS */
+
+.intro-top-content {
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  padding-left: 72px;
+
+  /*
+    Rechts blijft de content netjes
+    gelijk lopen met onze globale container.
+  */
+  padding-right:
+    max(
+      var(--page-padding),
+      calc(
+        (100vw - var(--max-width)) / 2
+        + var(--page-padding)
+      )
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================
+   TYPOGRAFIE
+========================================= */
+
+.intro-heading {
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  font-size: 52px;
+  font-weight: 700;
+  font-style: normal;
+
+  line-height: 1;
+
+  color: var(--green-dark);
+}
+
+
+.intro-copy {
+  max-width: 720px;
+
+  margin-top: 24px;
+}
+
+.intro-copy p {
+  margin: 0 0 22px;
+
+  font-family: var(--font-body);
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  color: var(--text);
+}
+
+.intro-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-copy strong {
+  font-weight: 700;
+}
+
+
+/* =========================================
+   GROTE TEKST / QUOTE
+========================================= */
+
+.intro-quote {
+  align-self: center;
+
+  width: fit-content;
+
+  margin-top: 30px;
+  margin-bottom: 0;
+
+  text-align: center;
+
+  font-family: var(--font-heading);
+
+  font-size: 30px;
+  font-weight: 400;
+
+  line-height: 1.1;
+
+  color: var(--green-dark);
+}
+
+
+.intro-quote span {
+  position: relative;
+
+  display: inline-block;
+
+  z-index: 1;
+}
+
+
+.intro-quote span::after {
+  content: "";
+
+  position: absolute;
+
+  left: -4px;
+  right: -4px;
+
+  bottom: 1px;
+
+  height: 9px;
+
+  background-color: var(--yellow);
+
+  transform: rotate(-1deg);
+
+  z-index: -1;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.intro-button {
+  margin-top: 38px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  padding: 14px 18px;
+
+  background-color: var(--yellow);
+  color: var(--green-dark);
+
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.intro-button:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+.intro-button-arrow {
+  font-size: 19px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   ONDERSTE RIJ
+========================================= */
+
+.intro-bottom-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
+
+  column-gap: 32px;
+
+  align-items: center;
+
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
+
+.intro-bottom-content {
+  grid-column: 1 / span 7;
+}
+
+
+.intro-bottom-content .intro-copy {
+  max-width: 700px;
+}
+
+
+.intro-bottom-image {
+  grid-column: 9 / span 4;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.intro-bottom-image img {
+  width: 100%;
+  max-width: 390px;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  transform: scale(1.02);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .intro-top-row {
+    grid-template-columns: 42% 58%;
+  }
+
+  .intro-top-image {
+    min-height: 520px;
+  }
+
+  .intro-top-content {
+    padding:
+      60px
+      var(--page-padding)
+      60px
+      45px;
+  }
+
+  .intro-heading {
+    font-size: 44px;
+  }
+
+  .intro-copy p {
+    font-size: 15px;
+  }
+
+  .intro-quote {
+    font-size: 27px;
+  }
+
+  .intro-bottom-row {
+    column-gap: 24px;
+
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .intro-bottom-content {
+    grid-column: 1 / span 7;
+  }
+
+  .intro-bottom-image {
+    grid-column: 9 / span 4;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  /*
+    Mobile: terug onder elkaar.
+  */
+
+  .intro-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-top-image {
+    min-height: 0;
+
+    height: 440px;
+  }
+
+  .intro-top-image img {
+    transform: scale(1.05);
+
+    object-position: center;
+  }
+
+
+  .intro-top-content {
+    padding:
+      50px
+      var(--page-padding)
+      60px;
+  }
+
+
+  .intro-heading {
+    font-size: 40px;
+  }
+
+
+  .intro-copy {
+    margin-top: 20px;
+  }
+
+  .intro-copy p {
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+
+  .intro-quote {
+    align-self: center;
+
+    margin-top: 28px;
+
+    font-size: 27px;
+  }
+
+
+  .intro-button {
+    margin-top: 32px;
+  }
+
+
+  /* ONDERSTE RIJ */
+
+  .intro-bottom-row {
+    grid-template-columns: 1fr;
+
+    row-gap: 42px;
+
+    padding-top: 60px;
+    padding-bottom: 65px;
+  }
+
+
+  .intro-bottom-content,
+  .intro-bottom-image {
+    grid-column: 1;
+  }
+
+
+  .intro-bottom-image {
+    justify-content: center;
+  }
+
+
+  .intro-bottom-image img {
+    width: 75%;
+
+    max-width: 330px;
+  }
+
+}
+
+
+/* =========================================
+   KLEINE MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .intro-top-image {
+    height: 360px;
+  }
+
+
+  .intro-top-content {
+    padding-top: 42px;
+    padding-bottom: 50px;
+  }
+
+
+  .intro-heading {
+    font-size: 36px;
+  }
+
+
+  .intro-copy p {
+    font-size: 14px;
+  }
+
+
+  .intro-quote {
+    font-size: 24px;
+  }
+
+
+  .intro-button {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+
+  .intro-bottom-row {
+    padding-top: 50px;
+    padding-bottom: 55px;
+  }
+
+
+  .intro-bottom-image img {
+    width: 85%;
+  }
+
+}

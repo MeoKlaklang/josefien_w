@@ -1,0 +1,508 @@
+.approach-section {
+  width: 100%;
+  background-color: var(--white);
+
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.approach-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================
+   TITEL
+========================================= */
+
+.approach-title {
+  margin: 0 0 55px;
+
+  font-family: var(--font-heading);
+  font-size: 52px;
+  font-weight: 700;
+  font-style: normal;
+
+  line-height: 1;
+
+  text-align: center;
+
+  color: var(--green-dark);
+}
+
+
+/* =========================================
+   SLIDER
+========================================= */
+
+.approach-slider {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    50px
+    minmax(0, 1fr)
+    50px;
+
+  gap: 28px;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.approach-card {
+  width: 100%;
+  max-width: 1080px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  min-height: 450px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background-color: #dfe2cf;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.approach-image {
+  width: 100%;
+  min-height: 450px;
+
+  overflow: hidden;
+}
+
+.approach-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /*
+    subtiel ingezoomd zoals in je ontwerp
+  */
+  transform: scale(1.03);
+}
+
+
+/* =========================================
+   TEKST RECHTS
+========================================= */
+
+.approach-content {
+  padding: 65px 70px 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+
+.approach-copy {
+  max-width: 520px;
+}
+
+
+.approach-copy p {
+  margin: 0 0 28px;
+
+  font-family: var(--font-body);
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  color: var(--text);
+}
+
+.approach-copy p:last-child {
+  margin-bottom: 0;
+}
+
+
+.approach-copy strong {
+  font-weight: 700;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.approach-button {
+  align-self: flex-end;
+
+  margin-top: 35px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 13px 18px;
+
+  background-color: var(--yellow);
+  color: var(--green-dark);
+
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.approach-button:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   ARROWS
+========================================= */
+
+.approach-arrow {
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+
+  border: none;
+
+  color: var(--text);
+
+  font-size: 34px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+
+.approach-arrow-left:hover {
+  transform: translateX(-4px);
+}
+
+
+.approach-arrow-right:hover {
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.approach-dots {
+  margin-top: 24px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.approach-dot {
+  width: 11px;
+  height: 11px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #9a9a91;
+
+  cursor: pointer;
+}
+
+
+.approach-dot.active {
+  background-color: var(--text);
+}
+
+
+/* =========================================
+   SAMEN
+========================================= */
+
+.approach-together {
+  margin-top: 52px;
+
+  text-align: center;
+}
+
+
+.approach-together span {
+  position: relative;
+
+  display: inline-block;
+
+  font-family: var(--font-heading);
+
+  font-size: 76px;
+  font-weight: 700;
+
+  line-height: 0.9;
+
+  color: var(--green-dark);
+
+  z-index: 1;
+}
+
+
+.approach-together span::after {
+  content: "";
+
+  position: absolute;
+
+  left: -6px;
+  right: -6px;
+
+  bottom: -2px;
+
+  height: 12px;
+
+  background-color: var(--yellow);
+
+  z-index: -1;
+
+  transform: rotate(-1deg);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .approach-section {
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
+
+
+  .approach-title {
+    margin-bottom: 45px;
+
+    font-size: 44px;
+  }
+
+
+  .approach-slider {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr)
+      40px;
+
+    gap: 18px;
+  }
+
+
+  .approach-card {
+    grid-template-columns: 45% 55%;
+
+    min-height: 410px;
+  }
+
+
+  .approach-image {
+    min-height: 410px;
+  }
+
+
+  .approach-content {
+    padding:
+      50px
+      45px
+      35px;
+  }
+
+
+  .approach-copy p {
+    font-size: 15px;
+  }
+
+
+  .approach-together span {
+    font-size: 66px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .approach-section {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+
+
+  .approach-title {
+    margin-bottom: 35px;
+
+    font-size: 40px;
+
+    text-align: left;
+
+    align-self: flex-start;
+  }
+
+
+  /*
+    Arrows verdwijnen op mobile.
+    Later kunnen we swipe toevoegen.
+  */
+  .approach-slider {
+    display: block;
+  }
+
+
+  .approach-arrow {
+    display: none;
+  }
+
+
+  .approach-card {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
+
+    border-radius: 12px;
+  }
+
+
+  .approach-image {
+    height: 340px;
+
+    min-height: 0;
+  }
+
+
+  .approach-content {
+    padding:
+      38px
+      28px
+      30px;
+  }
+
+
+  .approach-copy {
+    max-width: none;
+  }
+
+
+  .approach-copy p {
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+
+  .approach-button {
+    align-self: flex-start;
+
+    margin-top: 30px;
+  }
+
+
+  .approach-dots {
+    margin-top: 20px;
+  }
+
+
+  .approach-together {
+    margin-top: 45px;
+  }
+
+
+  .approach-together span {
+    font-size: 58px;
+  }
+
+}
+
+
+/* =========================================
+   KLEINE MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .approach-title {
+    font-size: 36px;
+  }
+
+
+  .approach-image {
+    height: 280px;
+  }
+
+
+  .approach-content {
+    padding:
+      30px
+      22px
+      26px;
+  }
+
+
+  .approach-copy p {
+    font-size: 14px;
+  }
+
+
+  .approach-button {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+
+  .approach-together span {
+    font-size: 52px;
+  }
+
+}

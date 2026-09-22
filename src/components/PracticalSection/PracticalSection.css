@@ -1,0 +1,300 @@
+.practical-section {
+  width: 100%;
+  background-color: var(--green-dark);
+}
+
+/* =========================================
+   BOVENSTE DEEL MET FOTO + OVERLAY
+========================================= */
+
+.practical-overlay {
+  position: relative;
+
+  background-image:
+    linear-gradient(
+      rgba(36, 58, 47, 0.72),
+      rgba(36, 58, 47, 0.72)
+    ),
+    url("/images/sectie1.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.practical-content {
+  padding-top: 70px;
+  padding-bottom: 78px;
+}
+
+.practical-title {
+  margin: 0 0 44px;
+
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+
+  color: #f7f3eb;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.practical-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+}
+
+.practical-card {
+  min-height: 440px;
+
+  padding: 26px 28px 30px;
+
+  border: 2px solid #e8c95f;
+  border-radius: 16px;
+
+  background-color: rgba(249, 246, 239, 0.96);
+  color: var(--text);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.practical-card-title {
+  margin: 0 0 18px;
+
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 0.95;
+
+  color: var(--green-dark);
+}
+
+.practical-card p {
+  margin: 0 0 22px;
+
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.practical-card p:last-child {
+  margin-bottom: 0;
+}
+
+.practical-card strong {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.practical-highlight-text {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.practical-card-button {
+  margin-top: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 13px 16px;
+
+  border-radius: 4px;
+
+  background-color: var(--yellow);
+  color: var(--green-dark);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.practical-card-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+/* =========================================
+   URGENT BAR
+========================================= */
+
+.practical-urgent {
+  background-color: #1f3d31;
+}
+
+.practical-urgent-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr 1.25fr;
+  gap: 42px;
+  align-items: start;
+
+  padding-top: 34px;
+  padding-bottom: 38px;
+}
+
+.practical-urgent-label span {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  background-color: #f2de8a;
+  color: var(--green-dark);
+
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.practical-urgent-inner p {
+  margin: 0;
+
+  color: #f5f1e8;
+
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.practical-urgent-inner strong {
+  font-weight: 700;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .practical-content {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
+  .practical-title {
+    font-size: 46px;
+    margin-bottom: 34px;
+  }
+
+  .practical-cards {
+    gap: 22px;
+  }
+
+  .practical-card {
+    min-height: 400px;
+    padding: 24px 22px 26px;
+  }
+
+  .practical-card-title {
+    font-size: 44px;
+  }
+
+  .practical-card p {
+    font-size: 15px;
+  }
+
+  .practical-urgent-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+
+  .practical-urgent-label {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .practical-content {
+    padding-top: 52px;
+    padding-bottom: 56px;
+  }
+
+  .practical-title {
+    font-size: 40px;
+    margin-bottom: 28px;
+  }
+
+  .practical-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .practical-card {
+    min-height: auto;
+  }
+
+  .practical-card-title {
+    font-size: 42px;
+  }
+
+  .practical-card p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .practical-urgent-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .practical-urgent-label span {
+    font-size: 24px;
+  }
+
+  .practical-urgent-inner p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================
+   KLEINE MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .practical-title {
+    font-size: 36px;
+  }
+
+  .practical-card {
+    padding: 22px 18px 22px;
+  }
+
+  .practical-card-title {
+    font-size: 38px;
+  }
+
+  .practical-card p {
+    font-size: 14px;
+  }
+
+  .practical-card-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .practical-urgent-label span {
+    font-size: 22px;
+  }
+
+  .practical-urgent-inner p {
+    font-size: 14px;
+  }
+}

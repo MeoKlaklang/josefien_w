@@ -1,0 +1,241 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: rgba(255, 255, 255, 0.96);
+
+  z-index: 1000;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 1px 0 rgba(41, 72, 58, 0.06);
+}
+
+
+/* =========================================
+   SHOW / HIDE
+========================================= */
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.navbar-inner {
+  height: 108px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+  justify-self: start;
+
+  width: 58px;
+  height: 58px;
+
+  display: block;
+}
+
+.navbar-logo span {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--green-dark);
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.navbar-logo:hover span {
+  transform: scale(0.95);
+
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar-links {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 34px;
+}
+
+.navbar-links a {
+  position: relative;
+
+  color: var(--green-dark);
+
+  font-size: 15px;
+  font-weight: 400;
+
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  opacity: 0.6;
+}
+
+.navbar-links a.active {
+  font-weight: 600;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.navbar-cta {
+  justify-self: end;
+
+  padding: 13px 21px;
+
+  background-color: var(--yellow);
+
+  color: var(--green-dark);
+
+  border-radius: 4px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.navbar-cta:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.navbar-menu-button {
+  display: none;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.navbar-menu-button span {
+  display: block;
+
+  width: 25px;
+  height: 2px;
+
+  margin: 5px 0;
+
+  background-color: var(--green-dark);
+
+  border-radius: 999px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .navbar-links {
+    gap: 22px;
+  }
+
+  .navbar-links a {
+    font-size: 14px;
+  }
+
+  .navbar-cta {
+    font-size: 14px;
+
+    padding: 12px 18px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .navbar-menu-button {
+    display: block;
+  }
+}
