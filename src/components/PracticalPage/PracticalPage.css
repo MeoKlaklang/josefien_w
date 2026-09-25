@@ -1,0 +1,609 @@
+.practical-page {
+  width: 100%;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.practical-page-hero {
+  background-color: #f7f7ed;
+  margin-top: 100px;
+}
+
+.practical-page-hero-inner {
+  padding-top: 85px;
+  padding-bottom: 80px;
+}
+
+.practical-page-label {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: var(--green);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.practical-page-hero h1 {
+  margin: 0;
+
+  color: var(--green-dark);
+
+  font-family: var(--font-heading);
+
+  font-size: 64px;
+  font-weight: 700;
+
+  line-height: 0.95;
+}
+
+.practical-page-hero h1 span {
+  position: relative;
+
+  display: inline-block;
+
+  z-index: 1;
+}
+
+.practical-page-hero h1 span::after {
+  content: "";
+
+  position: absolute;
+
+  left: -4px;
+  right: -4px;
+  bottom: 3px;
+
+  height: 11px;
+
+  background-color: var(--yellow);
+
+  z-index: -1;
+}
+
+.practical-page-hero p {
+  max-width: 620px;
+
+  margin: 28px 0 0;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   QUICK INFO
+========================================= */
+
+.practical-page-quick {
+  padding: 80px 0;
+
+  background-color: var(--white);
+}
+
+.practical-page-quick-inner {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.practical-page-card {
+  position: relative;
+
+  min-height: 300px;
+
+  padding: 28px;
+
+  background-color: var(--cream);
+
+  border: 1px solid rgba(41, 72, 58, 0.16);
+}
+
+.practical-page-card:nth-child(2) {
+  background-color: #dfe2cf;
+}
+
+.practical-page-card-yellow {
+  background-color: #f0d873;
+}
+
+.practical-page-card-number {
+  font-family: var(--font-heading);
+
+  color: var(--green-dark);
+}
+
+.practical-page-card h2 {
+  margin: 55px 0 16px;
+
+  font-family: var(--font-heading);
+
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+
+  color: var(--green-dark);
+}
+
+.practical-page-card p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.practical-page-card a {
+  display: inline-block;
+
+  margin-top: 24px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--green-dark);
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.practical-page-location {
+  padding: 95px 0;
+
+  background-color: var(--cream);
+}
+
+.practical-page-location-inner {
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 32px;
+
+  align-items: center;
+}
+
+.practical-page-location-copy {
+  grid-column: 1 / span 7;
+}
+
+.practical-page-location-copy h2 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+
+  color: var(--green-dark);
+}
+
+.practical-page-location-copy > p {
+  max-width: 560px;
+
+  margin: 20px 0 0;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.practical-page-location-details {
+  margin-top: 40px;
+}
+
+.practical-page-location-details > div {
+  padding: 22px 0;
+
+  border-top: 1px solid rgba(41, 72, 58, 0.2);
+}
+
+.practical-page-location-details > div:last-child {
+  border-bottom: 1px solid rgba(41, 72, 58, 0.2);
+}
+
+.practical-page-location-details h3 {
+  margin: 0 0 7px;
+
+  font-family: var(--font-heading);
+
+  font-size: 27px;
+
+  color: var(--green-dark);
+}
+
+.practical-page-location-details p {
+  margin: 0;
+
+  max-width: 520px;
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.practical-page-location-visual {
+  grid-column: 9 / span 4;
+}
+
+.practical-page-location-shape {
+  min-height: 450px;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 35px;
+
+  border-radius: 180px 180px 12px 12px;
+
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(241, 211, 107, 0.7),
+      transparent 30%
+    ),
+    #aab2a2;
+}
+
+.practical-page-location-shape span {
+  font-family: var(--font-heading);
+
+  font-size: 42px;
+  font-weight: 700;
+
+  color: var(--green-dark);
+}
+
+
+/* =========================================
+   CANCELLATION
+========================================= */
+
+.practical-page-cancel {
+  padding: 90px 0;
+
+  background-color: var(--green-dark);
+
+  color: var(--white);
+}
+
+.practical-page-cancel-inner {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+}
+
+.practical-page-cancel .practical-page-label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.practical-page-cancel-heading h2 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+
+  color: var(--white);
+}
+
+.practical-page-cancel-content p {
+  margin: 0 0 20px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.practical-page-cancel-button {
+  margin-top: 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 14px 18px;
+
+  background-color: var(--yellow);
+
+  color: var(--green-dark);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+.practical-page-faq {
+  padding: 95px 0;
+
+  background-color: var(--white);
+}
+
+.practical-page-faq-inner {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 80px;
+}
+
+.practical-page-faq-heading h2 {
+  margin: 0;
+
+  max-width: 420px;
+
+  font-family: var(--font-heading);
+
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+
+  line-height: 1;
+
+  color: var(--green-dark);
+}
+
+.practical-page-faq-item {
+  border-top: 1px solid rgba(41, 72, 58, 0.22);
+}
+
+.practical-page-faq-item:last-child {
+  border-bottom: 1px solid rgba(41, 72, 58, 0.22);
+}
+
+.practical-page-faq-question {
+  width: 100%;
+
+  padding: 22px 0;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--green-dark);
+
+  font-family: var(--font-heading);
+
+  font-size: 27px;
+  font-weight: 700;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.practical-page-faq-icon {
+  font-family: var(--font-body);
+
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.practical-page-faq-answer {
+  padding: 0 50px 22px 0;
+}
+
+.practical-page-faq-answer p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   CRISIS
+========================================= */
+
+.practical-page-crisis {
+  padding: 70px 0;
+
+  background-color: #f0d873;
+}
+
+.practical-page-crisis-inner {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 70px;
+}
+
+.practical-page-crisis-title span {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--green-dark);
+}
+
+.practical-page-crisis-title h2 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+
+  color: var(--green-dark);
+}
+
+.practical-page-crisis-content p {
+  margin: 0 0 16px;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: var(--green-dark);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .practical-page-hero h1 {
+    font-size: 54px;
+  }
+
+  .practical-page-card h2 {
+    font-size: 35px;
+  }
+
+  .practical-page-location-copy h2,
+  .practical-page-cancel-heading h2,
+  .practical-page-faq-heading h2 {
+    font-size: 43px;
+  }
+
+  .practical-page-location-visual {
+    grid-column: 8 / span 5;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .practical-page-hero-inner {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .practical-page-hero h1 {
+    font-size: 43px;
+  }
+
+  .practical-page-quick {
+    padding: 55px 0;
+  }
+
+  .practical-page-quick-inner {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .practical-page-card {
+    min-height: auto;
+  }
+
+  .practical-page-location {
+    padding: 65px 0;
+  }
+
+  .practical-page-location-inner {
+    grid-template-columns: 1fr;
+
+    row-gap: 40px;
+  }
+
+  .practical-page-location-copy,
+  .practical-page-location-visual {
+    grid-column: 1;
+  }
+
+  .practical-page-location-shape {
+    min-height: 360px;
+  }
+
+  .practical-page-cancel {
+    padding: 65px 0;
+  }
+
+  .practical-page-cancel-inner,
+  .practical-page-faq-inner,
+  .practical-page-crisis-inner {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .practical-page-cancel-heading h2,
+  .practical-page-faq-heading h2 {
+    font-size: 38px;
+  }
+
+  .practical-page-faq {
+    padding: 65px 0;
+  }
+
+  .practical-page-faq-question {
+    font-size: 24px;
+  }
+
+  .practical-page-crisis {
+    padding: 55px 0;
+  }
+
+  .practical-page-crisis-title h2 {
+    font-size: 36px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .practical-page-hero h1 {
+    font-size: 38px;
+  }
+
+  .practical-page-card h2 {
+    font-size: 32px;
+  }
+
+  .practical-page-cancel-button {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .practical-page-faq-question {
+    font-size: 22px;
+  }
+
+  .practical-page-faq-answer {
+    padding-right: 0;
+  }
+}
