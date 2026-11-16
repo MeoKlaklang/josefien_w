@@ -2,13 +2,13 @@
 
 :root {
   /* Brand palette — botanical green / warm beige / muted gold */
-  --green-dark: #303d34;
+  --green-dark: #386044;
   --green-deep: #26322b;
-  --green: #4d5c4f;
+  --green: #4f5c4d;
   --green-light: #a7afa3;
   --green-soft: #e4e7df;
 
-  --gold: #cdb46c;
+  --gold: #e6b935;
   --gold-dark: #b89a4f;
   --gold-light: #e2d39f;
   --yellow: var(--gold);
