@@ -12,8 +12,8 @@
 
   background-image:
     linear-gradient(
-      rgba(36, 58, 47, 0.72),
-      rgba(36, 58, 47, 0.72)
+      rgba(48, 61, 52, 0.72),
+      rgba(48, 61, 52, 0.72)
     ),
     url("/images/sectie1.png");
 
@@ -36,7 +36,7 @@
   font-style: normal;
   line-height: 1;
 
-  color: #f7f3eb;
+  color: var(--cream);
 }
 
 /* =========================================
@@ -54,7 +54,7 @@
 
   padding: 26px 28px 30px;
 
-  border: 2px solid #e8c95f;
+  border: 2px solid var(--gold);
   border-radius: 16px;
 
   background-color: rgba(249, 246, 239, 0.96);
@@ -131,7 +131,7 @@
 ========================================= */
 
 .practical-urgent {
-  background-color: #1f3d31;
+  background-color: var(--green-deep);
 }
 
 .practical-urgent-inner {
@@ -149,7 +149,7 @@
 
   padding: 8px 12px;
 
-  background-color: #f2de8a;
+  background-color: var(--gold-light);
   color: var(--green-dark);
 
   font-family: var(--font-heading);
@@ -161,7 +161,7 @@
 .practical-urgent-inner p {
   margin: 0;
 
-  color: #f5f1e8;
+  color: var(--cream);
 
   font-size: 16px;
   line-height: 1.55;

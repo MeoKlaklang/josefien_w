@@ -127,12 +127,12 @@
 
   padding: 25px 0;
 
-  border-top: 1px solid rgba(41, 72, 58, 0.22);
+  border-top: 1px solid rgba(48, 61, 52, 0.22);
 }
 
 
 .reachability-item:last-child {
-  border-bottom: 1px solid rgba(41, 72, 58, 0.22);
+  border-bottom: 1px solid rgba(48, 61, 52, 0.22);
 }
 
 
@@ -263,7 +263,7 @@
 
   border-radius: 50%;
 
-  background-color: rgba(241, 211, 107, 0.55);
+  background-color: rgba(205, 180, 108, 0.55);
 }
 
 

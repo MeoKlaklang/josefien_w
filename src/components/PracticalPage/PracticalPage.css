@@ -8,7 +8,7 @@
 ========================================= */
 
 .practical-page-hero {
-  background-color: #f7f7ed;
+  background-color: var(--cream);
   margin-top: 100px;
 }
 
@@ -105,15 +105,15 @@
 
   background-color: var(--cream);
 
-  border: 1px solid rgba(41, 72, 58, 0.16);
+  border: 1px solid rgba(48, 61, 52, 0.16);
 }
 
 .practical-page-card:nth-child(2) {
-  background-color: #dfe2cf;
+  background-color: var(--green-soft);
 }
 
 .practical-page-card-yellow {
-  background-color: #f0d873;
+  background-color: var(--yellow);
 }
 
 .practical-page-card-number {
@@ -205,11 +205,11 @@
 .practical-page-location-details > div {
   padding: 22px 0;
 
-  border-top: 1px solid rgba(41, 72, 58, 0.2);
+  border-top: 1px solid rgba(48, 61, 52, 0.2);
 }
 
 .practical-page-location-details > div:last-child {
-  border-bottom: 1px solid rgba(41, 72, 58, 0.2);
+  border-bottom: 1px solid rgba(48, 61, 52, 0.2);
 }
 
 .practical-page-location-details h3 {
@@ -248,7 +248,7 @@
   background:
     radial-gradient(
       circle at 70% 20%,
-      rgba(241, 211, 107, 0.7),
+      rgba(205, 180, 108, 0.7),
       transparent 30%
     ),
     #aab2a2;
@@ -365,11 +365,11 @@
 }
 
 .practical-page-faq-item {
-  border-top: 1px solid rgba(41, 72, 58, 0.22);
+  border-top: 1px solid rgba(48, 61, 52, 0.22);
 }
 
 .practical-page-faq-item:last-child {
-  border-bottom: 1px solid rgba(41, 72, 58, 0.22);
+  border-bottom: 1px solid rgba(48, 61, 52, 0.22);
 }
 
 .practical-page-faq-question {
@@ -426,7 +426,7 @@
 .practical-page-crisis {
   padding: 70px 0;
 
-  background-color: #f0d873;
+  background-color: var(--yellow);
 }
 
 .practical-page-crisis-inner {

@@ -54,7 +54,7 @@
   font-size: 27px;
   line-height: 1.08;
 
-  color: #f8f5ee;
+  color: var(--cream-light);
 }
 
 .footer-cta {

@@ -1,33 +1,75 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 :root {
-  --green-dark: #29483a;
-  --green: #687d63;
-  --green-light: #aeb7a5;
+  /* Brand palette — botanical green / warm beige / muted gold */
+  --green-dark: #303d34;
+  --green-deep: #26322b;
+  --green: #4d5c4f;
+  --green-light: #a7afa3;
+  --green-soft: #e4e7df;
 
-  --yellow: #f1d36b;
+  --gold: #cdb46c;
+  --gold-dark: #b89a4f;
+  --gold-light: #e2d39f;
+  --yellow: var(--gold);
 
-  --cream: #f5f1e8;
+  --cream: #f7f2e9;
+  --cream-light: #fdfbf7;
+  --cream-deep: #eee5d8;
   --white: #ffffff;
 
-  --text: #24352d;
-  --text-light: #68736d;
+  --text: #29322d;
+  --text-light: #677069;
+  --text-muted: #858b86;
 
-  --font-heading: "Cormorant", serif;
-  --font-body: "DM Sans", sans-serif;
+  --border: rgba(48, 61, 52, 0.16);
+  --border-light: rgba(48, 61, 52, 0.09);
+
+  --font-heading: "Cormorant", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
 
   --max-width: 1440px;
-
-  /* overal dezelfde horizontale uitlijning */
+  --content-width: 1240px;
   --page-padding: 68px;
+
+  /* Shared spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --section-space-lg: 96px;
+  --section-space-md: 72px;
+  --section-space-sm: 52px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-soft: 0 12px 40px rgba(38, 50, 43, 0.07);
+
+  --transition-fast: 180ms ease;
+  --transition-base: 260ms ease;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -39,13 +81,18 @@ body,
 
 body {
   min-width: 320px;
-
   margin: 0;
-
-  background-color: var(--cream);
+  background-color: var(--cream-light);
   color: var(--text);
-
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--gold-light);
+  color: var(--green-deep);
 }
 
 a {
@@ -53,9 +100,16 @@ a {
   text-decoration: none;
 }
 
-img {
+img,
+picture,
+video,
+svg {
   display: block;
   max-width: 100%;
+}
+
+img {
+  height: auto;
 }
 
 button,
@@ -65,88 +119,143 @@ select {
   font: inherit;
 }
 
-/* Centrale container voor gewone content */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  color: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-dark);
+  outline-offset: 4px;
+}
+
 .container {
   width: 100%;
   max-width: var(--max-width);
-
   margin: 0 auto;
-
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
 }
 
-/* TYPOGRAFIE */
+.content-container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--green-dark);
+  font-family: var(--font-heading);
+  text-wrap: balance;
+}
 
 h1 {
   margin: 0;
-
-  font-family: var(--font-heading);
-
-  font-size: 70px;
+  font-size: clamp(46px, 4.86vw, 70px);
   font-weight: 700;
-
   line-height: 0.96;
-
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
+/* Keep the existing editorial h2 treatment; page-specific CSS can override it. */
 h2 {
   margin: 0;
-
-  font-family: var(--font-heading);
-
-  font-size: 36px;
+  font-size: clamp(28px, 2.5vw, 36px);
   font-weight: 400;
   font-style: italic;
-
-  line-height: 0.96;
-
-  letter-spacing: 0;
+  line-height: 0.98;
 }
 
-/* TABLET */
+p {
+  line-height: 1.65;
+}
+
+/* Reusable professional helpers for gradual CSS cleanup */
+.section-pad {
+  padding-block: var(--section-space-lg);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 @media (max-width: 1024px) {
   :root {
     --page-padding: 40px;
-  }
-
-  h1 {
-    font-size: 58px;
-  }
-
-  h2 {
-    font-size: 32px;
+    --section-space-lg: 80px;
+    --section-space-md: 64px;
   }
 }
-
-/* MOBILE */
 
 @media (max-width: 768px) {
   :root {
     --page-padding: 24px;
+    --section-space-lg: 64px;
+    --section-space-md: 52px;
+    --section-space-sm: 40px;
+  }
+
+  body {
+    font-size: 15px;
   }
 
   h1 {
-    font-size: 46px;
     line-height: 0.98;
   }
 
   h2 {
-    font-size: 28px;
     line-height: 1;
   }
 }
 
-/* KLEINE MOBILE */
-
 @media (max-width: 480px) {
-  h1 {
-    font-size: 40px;
+  :root {
+    --page-padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  h2 {
-    font-size: 25px;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

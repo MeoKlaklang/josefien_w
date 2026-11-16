@@ -6,10 +6,13 @@ import Werkwijze from "./pages/Werkwijze";
 import Praktisch from "./pages/Praktisch";
 import Contact from "./pages/Contact";
 import Afspraak from "./pages/Afspraak";
+import SeoManager from "./components/SeoManager";
 
 function App() {
   return (
     <BrowserRouter>
+      <SeoManager />
+
       <Routes>
         <Route
           path="/"

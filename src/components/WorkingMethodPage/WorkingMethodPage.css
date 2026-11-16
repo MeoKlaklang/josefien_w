@@ -8,7 +8,7 @@
 ========================================= */
 
 .work-hero {
-  background-color: #f7f7ed;
+  background-color: var(--cream);
   margin-top: 100px;
 }
 
@@ -108,8 +108,8 @@
 
   background-image:
     linear-gradient(
-      rgba(92, 107, 87, 0.72),
-      rgba(92, 107, 87, 0.72)
+      rgba(77, 92, 79, 0.72),
+      rgba(77, 92, 79, 0.72)
     ),
     url("/images/sectie1.png");
 
@@ -378,7 +378,7 @@
 .work-safe {
   padding: 95px 0;
 
-  background-color: #f7f7ed;
+  background-color: var(--cream);
 }
 
 .work-safe-inner {
@@ -527,17 +527,17 @@
 
   padding: 28px;
 
-  border: 1px solid rgba(41, 72, 58, 0.18);
+  border: 1px solid rgba(48, 61, 52, 0.18);
 
   background-color: var(--cream);
 }
 
 .work-forwho-cards article:nth-child(2) {
-  background-color: #dde1d0;
+  background-color: var(--green-soft);
 }
 
 .work-forwho-cards article:nth-child(3) {
-  background-color: #f1da7b;
+  background-color: var(--gold-light);
 }
 
 .work-forwho-cards span {
@@ -597,7 +597,7 @@
 .work-cta {
   padding: 70px 0;
 
-  background-color: #dce1cf;
+  background-color: var(--green-soft);
 }
 
 .work-cta-inner {

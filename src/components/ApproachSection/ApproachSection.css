@@ -77,7 +77,7 @@
 
   border-radius: 14px;
 
-  background-color: #dfe2cf;
+  background-color: var(--green-soft);
 }
 
 

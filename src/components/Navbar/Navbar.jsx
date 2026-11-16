@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
@@ -9,7 +9,6 @@ function Navbar() {
   const lastScrollY = useRef(0);
   const scrollTimeout = useRef(null);
 
-  const location = useLocation();
 
   /*
     NAVBAR SHOW / HIDE ON SCROLL
@@ -77,14 +76,6 @@ function Navbar() {
       }
     };
   }, [mobileOpen]);
-
-  /*
-    MENU SLUITEN WANNEER
-    DE PAGINA VERANDERT
-  */
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
 
   /*
     BODY NIET LATEN SCROLLEN
