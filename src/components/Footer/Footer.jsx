@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -7,30 +8,49 @@ function Footer() {
 
         <div className="footer-main">
 
+          {/* BRAND */}
           <div className="footer-brand">
-            <div className="footer-logo"></div>
+
+            <Link
+              to="/"
+              className="footer-logo"
+              aria-label="De Jowa - ga naar home"
+            >
+              <img
+                src="/images/dejowa-logo.png"
+                alt="De Jowa Psychologische Praktijk"
+              />
+            </Link>
 
             <p className="footer-brand-text">
               Psychologische begeleiding voor wie even vastloopt,
               zoekt of wil veranderen.
             </p>
 
-            <a href="/afspraak" className="footer-cta">
+            <Link
+              to="/afspraak"
+              className="footer-cta"
+            >
               <span>Een eerste gesprek aanvragen</span>
               <span>→</span>
-            </a>
+            </Link>
+
           </div>
 
+
+          {/* NAVIGATIE */}
           <div className="footer-column">
             <h3>Navigatie</h3>
 
-            <a href="/">Home</a>
-            <a href="/over-mij">Over mij</a>
-            <a href="/werkwijze">Werkwijze</a>
-            <a href="/praktisch">Praktisch</a>
-            <a href="/contact">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="/over-mij">Over mij</Link>
+            <Link to="/werkwijze">Werkwijze</Link>
+            <Link to="/praktisch">Praktisch</Link>
+            <Link to="/contact">Contact</Link>
           </div>
 
+
+          {/* PRAKTISCH */}
           <div className="footer-column">
             <h3>Praktisch</h3>
 
@@ -42,24 +62,26 @@ function Footer() {
               €70 per consultatie
             </p>
 
-            <a href="/afspraak">
+            <Link to="/afspraak">
               Afspraak maken →
-            </a>
+            </Link>
           </div>
 
+
+          {/* CONTACT */}
           <div className="footer-column footer-contact">
             <h3>Contact</h3>
 
             <p>
-              <strong>[Naam praktijk]</strong>
+              <strong>De Jowa praktijk</strong>
               <br />
               [Straat + nummer]
               <br />
               [Postcode] Herent
             </p>
 
-            <a href="mailto:info@praktijknaam.be">
-              info@praktijknaam.be
+            <a href="mailto:info@dejowa.be">
+              info@dejowa.be
             </a>
 
             <a href="tel:+3212345678">
@@ -69,17 +91,24 @@ function Footer() {
 
         </div>
 
+
+        {/* BOTTOM */}
         <div className="footer-bottom">
+
           <p>
-            © {new Date().getFullYear()} Josefien — Alle rechten voorbehouden
+            © {new Date().getFullYear()} De Jowa — Alle rechten voorbehouden
           </p>
 
           <div className="footer-bottom-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/algemene-voorwaarden">
+            <Link to="/privacy">
+              Privacy
+            </Link>
+
+            <Link to="/algemene-voorwaarden">
               Algemene voorwaarden
-            </a>
+            </Link>
           </div>
+
         </div>
 
       </div>
