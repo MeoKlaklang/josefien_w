@@ -68,7 +68,7 @@ function WorkingMethodPage() {
 
           <div className="work-hero-image">
             <img
-              src="/images/sectie1.png"
+              src="/images/sectie1.jpeg"
               alt="Rustige therapieruimte"
             />
           </div>
@@ -191,7 +191,7 @@ function WorkingMethodPage() {
 
           <div className="work-safe-image">
             <img
-              src="/images/sectie2.png"
+              src="/images/sectie2.jpeg"
               alt="Warme rustige praktijkruimte"
             />
           </div>

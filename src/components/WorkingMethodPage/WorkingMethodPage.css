@@ -10,6 +10,7 @@
 .work-hero {
   background-color: var(--cream);
   margin-top: 100px;
+  padding-left:50px;
 }
 
 .work-hero-inner {

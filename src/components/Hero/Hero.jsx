@@ -41,7 +41,7 @@ function Hero() {
 
         <div className="hero-image-wrapper">
           <img
-            src="/images/hero.png"
+            src="/images/werkwijze.jpeg"
             alt="Rustige natuurlijke omgeving"
             className="hero-image"
           />

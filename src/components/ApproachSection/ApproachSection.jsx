@@ -3,21 +3,21 @@ import "./ApproachSection.css";
 
 const slides = [
   {
-    image: "/images/werkwijze.png",
+    image: "/images/werkwijze.jpeg",
     text1:
       "Mijn manier van werken is eerder gedragsgericht. We kijken samen naar patronen die je vandaag helpen, maar je misschien ook in de weg staan. Vanuit dat inzicht zoeken we naar mogelijkheden om dingen anders aan te pakken en stap voor stap verandering te brengen.",
     text2:
       "Ik vind het belangrijk dat therapie een veilige plek is waar je jezelf kan zijn en waar ook moeilijke of kwetsbare thema's bespreekbaar mogen worden.",
   },
   {
-    image: "/images/sectie1.png",
+    image: "/images/sectie1.jpeg",
     text1:
       "Therapie is voor mij geen proces waarbij ik je vertel wat je moet doen. Ik zie mezelf eerder als iemand die naast je staat en samen met jou onderzoekt wat er speelt.",
     text2:
       "Sommige sessies draaien vooral rond inzicht en begrip. Op andere momenten werken we meer praktisch en oefenen we samen.",
   },
   {
-    image: "/images/sectie2.png",
+    image: "/images/sectie2.jpeg",
     text1:
       "Wanneer dit aansluit bij je hulpvraag, geef ik ook oefeningen of opdrachten mee voor tussen de sessies.",
     text2:

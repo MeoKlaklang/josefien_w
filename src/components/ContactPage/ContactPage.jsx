@@ -3,499 +3,255 @@ import { useState } from "react";
 import "./ContactPage.css";
 
 function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		phone: "",
+		message: "",
+	});
 
-  const [status, setStatus] = useState("");
+	const [status, setStatus] = useState("");
 
-  const [statusMessage, setStatusMessage] =
-    useState("");
+	const [statusMessage, setStatusMessage] = useState("");
 
-  const [loading, setLoading] =
-    useState(false);
+	const [loading, setLoading] = useState(false);
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
 
-  const handleChange = (event) => {
-    const { name, value } =
-      event.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	};
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+	const handleSubmit = async (event) => {
+		event.preventDefault();
 
+		setLoading(true);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+		setStatus("");
 
-    setLoading(true);
+		setStatusMessage("");
 
-    setStatus("");
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
 
-    setStatusMessage("");
+				headers: {
+					"Content-Type": "application/json",
+				},
 
-    try {
-      const response = await fetch(
-        "/api/contact",
-        {
-          method: "POST",
+				body: JSON.stringify(formData),
+			});
 
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
-
-          body: JSON.stringify(
-            formData
-          ),
-        }
-      );
-
-      /*
+			/*
         Altijd eerst response uitlezen.
         Daardoor zien we ook de echte
         foutmelding van Resend.
       */
-      const result =
-        await response.json();
+			const result = await response.json();
 
-      console.log(
-        "API response:",
-        result
-      );
+			console.log("API response:", result);
 
-      if (!response.ok) {
-        console.error(
-          "Server error:",
-          result
-        );
+			if (!response.ok) {
+				console.error("Server error:", result);
 
-        throw new Error(
-          result.message ||
-            "Er ging iets mis bij het versturen."
-        );
-      }
+				throw new Error(result.message || "Er ging iets mis bij het versturen.");
+			}
 
+			setStatus("success");
 
-      setStatus("success");
+			setStatusMessage("Bedankt! Je bericht werd goed verzonden.");
 
-      setStatusMessage(
-        "Bedankt! Je bericht werd goed verzonden."
-      );
+			setFormData({
+				name: "",
+				email: "",
+				phone: "",
+				message: "",
+			});
+		} catch (error) {
+			console.error("Contact error:", error);
 
+			setStatus("error");
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error(
-        "Contact error:",
-        error
-      );
+			setStatusMessage(error.message || "Er ging iets mis bij het versturen.");
+		} finally {
+			setLoading(false);
+		}
+	};
 
-      setStatus("error");
+	return (
+		<div className="contact-page">
+			{/* HERO */}
 
-      setStatusMessage(
-        error.message ||
-          "Er ging iets mis bij het versturen."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+			<section className="contact-hero">
+				<div className="contact-hero-inner container">
+					<div className="contact-heading">
+						<span className="contact-label">Contact</span>
 
+						<h1>
+							Heb je een vraag?
+							<br />
+							<span>Laat gerust iets weten.</span>
+						</h1>
 
-  return (
-    <div className="contact-page">
+						<p>Heb je eerst nog een vraag voordat je een afspraak maakt? Je mag altijd contact opnemen. Ik probeer je zo snel mogelijk een antwoord te geven.</p>
+					</div>
+				</div>
+			</section>
 
-      {/* HERO */}
+			{/* CONTACT + FORM */}
 
-      <section className="contact-hero">
-        <div className="contact-hero-inner container">
+			<section className="contact-main">
+				<div className="contact-grid container">
+					{/* LEFT */}
 
-          <div className="contact-heading">
+					<div className="contact-info">
+						<h2>Neem contact op</h2>
 
-            <span className="contact-label">
-              Contact
-            </span>
+						<p className="contact-info-intro">Je kan mij bereiken via e-mail, telefoon of via het contactformulier.</p>
 
-            <h1>
-              Heb je een vraag?
-              <br />
+						<div className="contact-details">
+							<div className="contact-detail">
+								<span className="contact-detail-number">01</span>
 
-              <span>
-                Laat gerust iets weten.
-              </span>
-            </h1>
+								<div>
+									<h3>E-mail</h3>
 
-            <p>
-              Heb je eerst nog een vraag
-              voordat je een afspraak maakt?
-              Je mag altijd contact opnemen.
-              Ik probeer je zo snel mogelijk
-              een antwoord te geven.
-            </p>
+									<a href="mailto:info@praktijknaam.be">info@dejowa.be</a>
+								</div>
+							</div>
 
-          </div>
+							<div className="contact-detail">
+								<span className="contact-detail-number">02</span>
 
-        </div>
-      </section>
+								<div>
+									<h3>Telefoon (enkel via WhatsApp)</h3>
 
+									<a href="tel:+32483383072">+32483383072</a>
+								</div>
+							</div>
 
-      {/* CONTACT + FORM */}
+							<div className="contact-detail">
+								<span className="contact-detail-number">03</span>
 
-      <section className="contact-main">
+								<div>
+									<h3>Praktijk</h3>
 
-        <div className="contact-grid container">
+									<p>
+										[Naam praktijk]
+										<br />
+										[Straat + nummer]
+										<br />
+										[Postcode] Herent
+									</p>
+								</div>
+							</div>
+						</div>
 
-          {/* LEFT */}
+						<p className="contact-small-note">
+							Consultaties vinden plaats <strong>op afspraak.</strong>
+						</p>
+					</div>
 
-          <div className="contact-info">
+					{/* FORM */}
 
-            <h2>
-              Neem contact op
-            </h2>
+					<div className="contact-form-wrapper">
+						<div className="contact-form-header">
+							<h2>Stuur een bericht</h2>
 
-            <p className="contact-info-intro">
-              Je kan mij bereiken via
-              e-mail, telefoon of via het
-              contactformulier.
-            </p>
+							<p>Vul hieronder je gegevens in en ik neem zo snel mogelijk contact met je op.</p>
+						</div>
 
+						<form className="contact-form" onSubmit={handleSubmit}>
+							{/* NAME */}
 
-            <div className="contact-details">
+							<div className="contact-field">
+								<label htmlFor="name">Naam *</label>
 
-              <div className="contact-detail">
+								<input id="name" type="text" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" />
+							</div>
 
-                <span className="contact-detail-number">
-                  01
-                </span>
+							{/* EMAIL */}
 
-                <div>
+							<div className="contact-field">
+								<label htmlFor="email">E-mailadres *</label>
 
-                  <h3>
-                    E-mail
-                  </h3>
+								<input id="email" type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" />
+							</div>
 
-                  <a href="mailto:info@praktijknaam.be">
-                    info@praktijknaam.be
-                  </a>
+							{/* PHONE */}
 
-                </div>
+							<div className="contact-field">
+								<label htmlFor="phone">
+									Telefoonnummer
+									<span> optioneel</span>
+								</label>
 
-              </div>
+								<input id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} autoComplete="tel" />
+							</div>
 
+							{/* MESSAGE */}
 
-              <div className="contact-detail">
+							<div className="contact-field">
+								<label htmlFor="message">Bericht *</label>
 
-                <span className="contact-detail-number">
-                  02
-                </span>
+								<textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} required />
+							</div>
 
-                <div>
+							{/* PRIVACY */}
 
-                  <h3>
-                    Telefoon
-                  </h3>
+							<div className="contact-privacy">
+								<span className="contact-lock">↳</span>
 
-                  <a href="tel:+3212345678">
-                    +32 12 34 56 78
-                  </a>
+								<p>
+									Je bericht komt rechtstreeks in de mailbox van de praktijk en wordt enkel gebruikt om je te antwoorden. Als psychologe ben ik gebonden door het beroepsgeheim. Je bericht wordt niet gedeeld en niet langer bewaard dan nodig. Je kan
+									altijd vragen om het te laten verwijderen.
+								</p>
+							</div>
 
-                </div>
+							{/* SUBMIT */}
 
-              </div>
+							<button className="contact-submit" type="submit" disabled={loading}>
+								<span>{loading ? "Versturen..." : "Verstuur bericht"}</span>
 
+								{!loading && <span>→</span>}
+							</button>
 
-              <div className="contact-detail">
+							{/* SUCCESS */}
 
-                <span className="contact-detail-number">
-                  03
-                </span>
+							{status === "success" && <p className="contact-success">{statusMessage}</p>}
 
-                <div>
+							{/* ERROR */}
 
-                  <h3>
-                    Praktijk
-                  </h3>
+							{status === "error" && <p className="contact-error">{statusMessage}</p>}
+						</form>
+					</div>
+				</div>
+			</section>
 
-                  <p>
-                    [Naam praktijk]
-                    <br />
+			{/* CTA */}
 
-                    [Straat + nummer]
-                    <br />
+			<section className="contact-cta">
+				<div className="contact-cta-inner container">
+					<div>
+						<span className="contact-label">Eerste gesprek</span>
 
-                    [Postcode] Herent
-                  </p>
+						<h2>Liever meteen een gesprek inplannen?</h2>
 
-                </div>
+						<p>Je hoeft je hulpvraag nog niet perfect te kunnen formuleren. Een eerste gesprek is er net om samen te bekijken wat er speelt en wat je nodig hebt.</p>
+					</div>
 
-              </div>
+					<a href="/afspraak" className="contact-cta-button">
+						<span>Een eerste gesprek aanvragen</span>
 
-            </div>
-
-
-            <p className="contact-small-note">
-              Consultaties vinden plaats{" "}
-              <strong>
-                op afspraak.
-              </strong>
-            </p>
-
-          </div>
-
-
-          {/* FORM */}
-
-          <div className="contact-form-wrapper">
-
-            <div className="contact-form-header">
-
-              <h2>
-                Stuur een bericht
-              </h2>
-
-              <p>
-                Vul hieronder je gegevens
-                in en ik neem zo snel
-                mogelijk contact met je op.
-              </p>
-
-            </div>
-
-
-            <form
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
-
-              {/* NAME */}
-
-              <div className="contact-field">
-
-                <label htmlFor="name">
-                  Naam *
-                </label>
-
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  autoComplete="name"
-                />
-
-              </div>
-
-
-              {/* EMAIL */}
-
-              <div className="contact-field">
-
-                <label htmlFor="email">
-                  E-mailadres *
-                </label>
-
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  autoComplete="email"
-                />
-
-              </div>
-
-
-              {/* PHONE */}
-
-              <div className="contact-field">
-
-                <label htmlFor="phone">
-
-                  Telefoonnummer
-
-                  <span>
-                    {" "}optioneel
-                  </span>
-
-                </label>
-
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  autoComplete="tel"
-                />
-
-              </div>
-
-
-              {/* MESSAGE */}
-
-              <div className="contact-field">
-
-                <label htmlFor="message">
-                  Bericht *
-                </label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
-
-              </div>
-
-
-              {/* PRIVACY */}
-
-              <div className="contact-privacy">
-
-                <span className="contact-lock">
-                  ↳
-                </span>
-
-                <p>
-                  Je bericht komt
-                  rechtstreeks in de
-                  mailbox van de praktijk
-                  en wordt enkel gebruikt
-                  om je te antwoorden.
-
-                  Als psychologe ben ik
-                  gebonden door het
-                  beroepsgeheim.
-
-                  Je bericht wordt niet
-                  gedeeld en niet langer
-                  bewaard dan nodig.
-
-                  Je kan altijd vragen om
-                  het te laten verwijderen.
-                </p>
-
-              </div>
-
-
-              {/* SUBMIT */}
-
-              <button
-                className="contact-submit"
-                type="submit"
-                disabled={loading}
-              >
-
-                <span>
-                  {loading
-                    ? "Versturen..."
-                    : "Verstuur bericht"}
-                </span>
-
-                {!loading && (
-                  <span>
-                    →
-                  </span>
-                )}
-
-              </button>
-
-
-              {/* SUCCESS */}
-
-              {status === "success" && (
-                <p className="contact-success">
-                  {statusMessage}
-                </p>
-              )}
-
-
-              {/* ERROR */}
-
-              {status === "error" && (
-                <p className="contact-error">
-                  {statusMessage}
-                </p>
-              )}
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* CTA */}
-
-      <section className="contact-cta">
-
-        <div className="contact-cta-inner container">
-
-          <div>
-
-            <span className="contact-label">
-              Eerste gesprek
-            </span>
-
-            <h2>
-              Liever meteen een gesprek
-              inplannen?
-            </h2>
-
-            <p>
-              Je hoeft je hulpvraag nog
-              niet perfect te kunnen
-              formuleren.
-
-              Een eerste gesprek is er net
-              om samen te bekijken wat er
-              speelt en wat je nodig hebt.
-            </p>
-
-          </div>
-
-
-          <a
-            href="/afspraak"
-            className="contact-cta-button"
-          >
-
-            <span>
-              Een eerste gesprek aanvragen
-            </span>
-
-            <span>
-              →
-            </span>
-
-          </a>
-
-        </div>
-
-      </section>
-
-    </div>
-  );
+						<span>→</span>
+					</a>
+				</div>
+			</section>
+		</div>
+	);
 }
 
 export default ContactPage;

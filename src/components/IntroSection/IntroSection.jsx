@@ -9,7 +9,7 @@ function IntroSection() {
 
         <div className="intro-top-image">
           <img
-            src="/images/sectie1.png"
+            src="/images/sectie1.jpeg"
             alt="Rustige praktijkruimte"
           />
         </div>
@@ -78,7 +78,7 @@ function IntroSection() {
 
         <div className="intro-bottom-image">
           <img
-            src="/images/sectie2.png"
+            src="/images/sectie2.jpeg"
             alt="Sfeervol interieur met groene takken"
           />
         </div>
