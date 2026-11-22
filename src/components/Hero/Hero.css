@@ -1,3 +1,7 @@
+/* =========================================
+   HERO
+========================================= */
+
 .hero {
 	width: 100%;
 
@@ -6,7 +10,7 @@
 
 .hero-content {
 	width: 100%;
-
+	padding-left: 50px;
 	display: grid;
 
 	grid-template-columns: 1fr 1fr;
@@ -14,23 +18,19 @@
 	min-height: 650px;
 }
 
-/* -------------------- */
-/* LINKERKANT - TEKST   */
-/* -------------------- */
+/* =========================================
+   LINKERKANT — TEKST
+========================================= */
 
 .hero-text {
 	width: 100%;
 
 	display: flex;
+
 	align-items: center;
 
-	/*
-    Zelfde linkermarge als navbar-logo.
-    Hierdoor lijnen logo en hero exact uit.
-  */
 	padding-left: var(--page-padding);
-
-	padding-left: 110px;
+	padding-right: 60px;
 }
 
 .hero-text-inner {
@@ -39,9 +39,19 @@
 	max-width: 650px;
 }
 
+/* =========================================
+   TITEL
+========================================= */
+
 .hero-title {
+	margin: 0;
+
 	color: var(--green-dark);
 }
+
+/* =========================================
+   SUBTITEL
+========================================= */
 
 .hero-subtitle {
 	margin-top: 28px;
@@ -49,7 +59,9 @@
 	color: var(--green-dark);
 }
 
-/* Gele markering achter "Samen" */
+/* =========================================
+   GOUDEN HIGHLIGHT
+========================================= */
 
 .hero-highlight {
 	position: relative;
@@ -78,22 +90,26 @@
 	z-index: -1;
 }
 
-/* CTA */
+/* =========================================
+   CTA
+========================================= */
 
 .hero-button {
 	margin-top: 56px;
-
-	display: inline-flex;
-	align-items: center;
-	justify-content: space-between;
-
-	gap: 24px;
 
 	min-width: 275px;
 
 	padding: 15px 18px;
 
+	display: inline-flex;
+
+	align-items: center;
+	justify-content: space-between;
+
+	gap: 24px;
+
 	background-color: var(--yellow);
+
 	color: var(--green-dark);
 
 	border-radius: 4px;
@@ -103,13 +119,14 @@
 
 	transition:
 		transform 0.2s ease,
+		background-color 0.2s ease,
 		opacity 0.2s ease;
 }
 
 .hero-button:hover {
 	transform: translateY(-2px);
 
-	opacity: 0.9;
+	opacity: 0.92;
 }
 
 .hero-button-arrow {
@@ -118,31 +135,129 @@
 	line-height: 1;
 }
 
-/* -------------------- */
-/* RECHTERKANT - IMAGE  */
-/* -------------------- */
+/* =========================================
+   RECHTERKANT — SLIDER
+========================================= */
 
 .hero-image-wrapper {
+	position: relative;
+
 	width: 100%;
 	height: 100%;
 
 	min-height: 650px;
 
 	overflow: hidden;
+
+	background-color: var(--cream);
 }
 
+/* =========================================
+   SLIDER IMAGES
+========================================= */
+
 .hero-image {
+	position: absolute;
+
+	inset: 0;
+
 	width: 100%;
 	height: 100%;
 
 	object-fit: cover;
 
 	object-position: center;
+
+	opacity: 0;
+
+	transform: scale(1.025);
+
+	transition:
+		opacity 1.1s ease,
+		transform 6s ease;
+
+	will-change: opacity, transform;
 }
 
-/* -------------------- */
-/* TABLET               */
-/* -------------------- */
+.hero-image-active {
+	opacity: 1;
+
+	transform: scale(1);
+}
+
+/* =========================================
+   WITTE OVERLAY
+   Maakt de beelden iets lichter/zachter
+========================================= */
+
+.hero-image-overlay {
+	position: absolute;
+
+	inset: 0;
+
+	background-color: rgba(255, 255, 255, 0.12);
+
+	pointer-events: none;
+
+	z-index: 2;
+}
+
+/* =========================================
+   SLIDER DOTS
+========================================= */
+
+.hero-slider-dots {
+	position: absolute;
+
+	right: 28px;
+	bottom: 26px;
+
+	display: flex;
+
+	align-items: center;
+
+	gap: 8px;
+
+	z-index: 3;
+}
+
+.hero-slider-dot {
+	width: 8px;
+	height: 8px;
+
+	padding: 0;
+
+	border: 1px solid rgba(255, 255, 255, 0.85);
+
+	border-radius: 50%;
+
+	background-color: rgba(255, 255, 255, 0.25);
+
+	cursor: pointer;
+
+	transition:
+		width 0.25s ease,
+		background-color 0.25s ease,
+		opacity 0.25s ease;
+}
+
+.hero-slider-dot:hover {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-slider-dot.active {
+	width: 22px;
+
+	border-radius: 999px;
+
+	background-color: var(--yellow);
+
+	border-color: var(--yellow);
+}
+
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 1024px) {
 	.hero-content {
@@ -162,9 +277,9 @@
 	}
 }
 
-/* -------------------- */
-/* MOBILE               */
-/* -------------------- */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
 	.hero-content {
@@ -192,10 +307,11 @@
 	}
 
 	.hero-button {
-		margin-top: 40px;
-
 		width: 100%;
+
 		max-width: 310px;
+
+		margin-top: 40px;
 	}
 
 	.hero-image-wrapper {
@@ -205,16 +321,22 @@
 	}
 
 	.hero-image {
-		width: 100%;
-		height: 100%;
+		object-position: center;
+	}
 
-		object-fit: cover;
+	.hero-slider-dots {
+		right: 20px;
+		bottom: 20px;
+	}
+
+	.hero-image-overlay {
+		background-color: rgba(255, 255, 255, 0.1);
 	}
 }
 
-/* -------------------- */
-/* KLEINE MOBILE        */
-/* -------------------- */
+/* =========================================
+   KLEINE MOBILE
+========================================= */
 
 @media (max-width: 480px) {
 	.hero-text {
@@ -232,5 +354,31 @@
 
 	.hero-highlight::after {
 		height: 9px;
+	}
+
+	.hero-slider-dots {
+		right: 16px;
+		bottom: 16px;
+	}
+
+	.hero-slider-dot {
+		width: 7px;
+		height: 7px;
+	}
+
+	.hero-slider-dot.active {
+		width: 20px;
+	}
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-image {
+		transform: none;
+
+		transition: opacity 0.2s ease;
 	}
 }
